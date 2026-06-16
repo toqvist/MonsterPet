@@ -1,4 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 npm run build
-git add dist -f
-git commit -m "deploy to gh pages"
-git subtree push --prefix dist origin gh-pages
+npx gh-pages --dist dist --dotfiles --message "deploy: $(date '+%Y-%m-%d %H:%M')"
